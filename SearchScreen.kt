@@ -190,9 +190,13 @@ LaunchedEffect(q, tab) {
             )
         } else when (tab) {
             0 -> {
-                if (trackResults.isEmpty()) {
-                    EmptyState("No results", "Nothing matches \"$q\".")
-                } else {
+                if (isSearching) {
+    EmptyState("Searching...", "Finding songs online...")
+} else if (searchError != null) {
+    EmptyState("Search unavailable", searchError ?: "Please try again.")
+} else if (trackResults.isEmpty()) {
+    EmptyState("No results", "Nothing matches \"$q\".")
+} else {
                     LazyColumn(contentPadding = PaddingValues(top = 14.dp, bottom = 24.dp), modifier = Modifier.fillMaxSize()) {
                         val top = trackResults.first()
                         item {
