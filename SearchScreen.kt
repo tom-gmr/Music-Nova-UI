@@ -86,6 +86,30 @@ fun SearchScreen(
     val recents = remember { mutableStateListOf<String>() }
     val q = query.trim()
     val currentId = playback.currentSong?.id
+    var onlineResults by remember { mutableStateOf<List<UiSong>>(emptyList()) }
+var isSearching by remember { mutableStateOf(false) }
+var searchError by remember { mutableStateOf<String?>(null) }
+
+LaunchedEffect(q, tab) {
+    if (q.isBlank() || tab != 0) {
+        onlineResults = emptyList()
+        searchError = null
+        isSearching = false
+    } else {
+        delay(400)
+        isSearching = true
+        searchError = null
+
+        try {
+            onlineResults = onSearch(q)
+        } catch (e: Exception) {
+            searchError = e.message ?: "Search failed"
+            onlineResults = emptyList()
+        } finally {
+            isSearching = false
+        }
+    }
+}
 
     fun commit() {
         if (q.isNotEmpty()) {
