@@ -116,7 +116,7 @@ fun NovaApp(
                         songs, playback,
                         onBack = { showSearch = false },
                         onPlay = onPlay,
-                        onSongMore = onMore
+                        onSongMore = onMore,
                         onSearch = searchController::searchSongs
                     )
                     if (current != null) {
