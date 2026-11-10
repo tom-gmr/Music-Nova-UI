@@ -9,7 +9,7 @@ data class UiSong(
     val durationMs: Long = 0L,
     val artworkUri: String? = null,
     val isFavorite: Boolean = false,
-)
+) val videoId: String? = null,
 
 data class UiPlaylist(
     val id: Long,
