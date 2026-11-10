@@ -117,6 +117,7 @@ fun NovaApp(
                         onBack = { showSearch = false },
                         onPlay = onPlay,
                         onSongMore = onMore
+                        onSearch = searchController::searchSongs
                     )
                     if (current != null) {
                         FloatingMiniPlayer(
