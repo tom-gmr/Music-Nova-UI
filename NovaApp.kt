@@ -43,7 +43,7 @@ import com.musicnova.app.ui.screens.SettingsScreen
 import com.musicnova.app.ui.screens.StatsScreen
 import com.musicnova.app.ui.theme.NovaColors
 import com.musicnova.app.ui.theme.NovaTheme
-
+import com.musicnova.app.ui.bridge.SearchController
 /**
  * Root of the whole UI. Call this from setContent { }.
  * Call enableEdgeToEdge() in MainActivity before setContent.
@@ -55,8 +55,9 @@ import com.musicnova.app.ui.theme.NovaTheme
 fun NovaApp(
     player: PlayerController,
     library: LibraryProvider,
+    searchController: SearchController,
     onSettingChanged: (key: String, value: String) -> Unit = { _, _ -> },
-) {
+) { 
     NovaTheme {
         var tab by rememberSaveable { mutableStateOf(NovaTab.Feed) }
         var showSearch by rememberSaveable { mutableStateOf(false) }
