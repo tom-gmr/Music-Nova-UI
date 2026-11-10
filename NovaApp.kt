@@ -106,7 +106,16 @@ fun NovaApp(
                         )
                     }
                 }
-                NovaBottomBar(tab) { tab = it }
+                if (current != null) {
+    FloatingMiniPlayer(
+        playback = playback,
+        onOpen = { showNowPlaying = true },
+        onToggle = player::togglePlayPause,
+        onNext = player::next
+    )
+} else {
+    NovaBottomBar(tab) { tab = it }
+                }
             }
 
             // Search sits over the tabs; its mini player is drawn inside this layer
