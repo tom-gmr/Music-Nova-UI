@@ -66,7 +66,8 @@ import com.musicnova.app.ui.components.SongRow
 import com.musicnova.app.ui.model.PlaybackUiState
 import com.musicnova.app.ui.model.UiSong
 import com.musicnova.app.ui.theme.NovaColors
-
+import androidx.compose.runtime.LaunchedEffect
+import kotlinx.coroutines.delay
 private val genres = listOf("Pop", "Rock", "Hip-Hop", "Lo-Fi", "Indie", "Classical", "Bollywood", "Folk")
 
 @Composable
