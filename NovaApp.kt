@@ -95,16 +95,6 @@ fun NovaApp(
                         )
                     }
 
-                    // Mini player floats above the content, just over the bottom bar
-                    if (current != null && !showSearch) {
-                        FloatingMiniPlayer(
-                            playback,
-                            onOpen = { showNowPlaying = true },
-                            onToggle = player::togglePlayPause,
-                            onNext = player::next,
-                            modifier = Modifier.align(androidx.compose.ui.Alignment.BottomCenter)
-                        )
-                    }
                 }
                 if (current != null) {
     FloatingMiniPlayer(
