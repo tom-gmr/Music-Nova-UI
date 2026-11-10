@@ -30,6 +30,8 @@ interface PlayerController {
     fun seekTo(positionMs: Long)
     fun toggleShuffle()
     fun cycleRepeat()
+} interface SearchController {
+    suspend fun searchSongs(query: String): List<UiSong>
 }
 
 /** Songs, playlists and stats source (your existing scanner / database). */
