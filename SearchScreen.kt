@@ -119,12 +119,7 @@ LaunchedEffect(q, tab) {
         }
     }
 
-    val trackResults = remember(songs, q) {
-        if (q.isEmpty()) emptyList()
-        else songs.filter {
-            it.title.contains(q, true) || it.artist.contains(q, true) || it.album.contains(q, true)
-        }
-    }
+    val trackResults = onlineResults
     val artistResults = remember(trackResults) { trackResults.groupBy { it.artist }.toList() }
     val albumResults = remember(trackResults) { trackResults.groupBy { it.album.ifBlank { "Unknown album" } }.toList() }
 
