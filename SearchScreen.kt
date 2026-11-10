@@ -77,7 +77,8 @@ fun SearchScreen(
     onBack: () -> Unit,
     onPlay: (List<UiSong>, Int) -> Unit,
     onSongMore: (UiSong) -> Unit,
-) { onSearch: suspend (String) -> List<UiSong>,
+    onSearch: suspend (String) -> List<UiSong>,
+) {
     BackHandler(onBack = onBack)
 
     var query by rememberSaveable { mutableStateOf("") }
