@@ -5,8 +5,7 @@ import com.lastwave.app.data.search.SearchTab
 import com.musicnova.app.ui.model.UiSong
 import javax.inject.Inject
 
-class MusicSearchBridge @Inject 
-    constructor(
+class MusicSearchBridge @Inject constructor(
     private val searchRepository: SearchRepository
 ) : SearchController {
 
